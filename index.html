@@ -1,82 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aman Kumar | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f1f5f9;
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --accent: #38bdf8;
+      --input-bg: #e2e8f0;
+      --border: #cbd5e1;
+      --card-shadow: rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark-mode {
+      --bg: #0f172a;
+      --bg-secondary: #1e293b;
+      --text: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --accent: #38bdf8;
+      --input-bg: #0f172a;
+      --border: #334155;
+      --card-shadow: rgba(56, 189, 248, 0.15);
+    }
+
     * {
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #0f172a, #1e293b);
-      color: #e2e8f0;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
     }
+
     header {
       text-align: center;
       padding: 4rem 2rem;
-      background-color: rgba(15, 23, 42, 0.9);
-      border-bottom: 2px solid #334155;
+      background-color: var(--bg-secondary);
+      border-bottom: 2px solid var(--border);
+      position: relative;
     }
+
     header h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.8rem;
-      color: #38bdf8;
+      color: var(--accent);
       margin: 0;
     }
+
     header p {
       margin-top: 0.5rem;
       font-size: 1.2rem;
-      color: #94a3b8;
+      color: var(--text-secondary);
     }
+
+    #modeToggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+    }
+
     section {
       padding: 3rem 2rem;
       max-width: 1100px;
       margin: auto;
     }
+
     h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: #f8fafc;
-      border-bottom: 1px solid #334155;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
       padding-bottom: 0.5rem;
       text-align: center;
     }
+
     .card, .contact-form {
-      background-color: #1e293b;
+      background-color: var(--bg-secondary);
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+      box-shadow: 0 0 15px var(--card-shadow);
       margin-bottom: 2rem;
       transition: transform 0.3s ease;
     }
+
     .card:hover {
       transform: translateY(-5px);
     }
+
     .card h3 {
       margin-top: 0;
-      color: #38bdf8;
+      color: var(--accent);
     }
+
     .card p, .contact-form input, .contact-form textarea {
-      color: #cbd5e1;
+      color: var(--text-secondary);
       font-size: 1rem;
     }
+
     .contact-form input, .contact-form textarea {
-      background: #0f172a;
-      border: 1px solid #334155;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
       padding: 0.75rem;
       border-radius: 8px;
       margin-bottom: 1rem;
       width: 100%;
+      color: var(--text);
     }
+
     .contact-form button {
-      background-color: #38bdf8;
-      color: #0f172a;
+      background-color: var(--accent);
+      color: var(--bg);
       padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 8px;
@@ -86,32 +136,38 @@
       display: block;
       margin: 0 auto;
     }
+
     .contact-form button:hover {
       background-color: #0ea5e9;
     }
+
     .socials {
       text-align: center;
     }
+
     .socials a {
       margin: 0 1rem;
-      color: #60a5fa;
+      color: var(--accent);
       text-decoration: none;
       font-size: 1.5rem;
     }
+
     .socials a:hover {
       color: #93c5fd;
     }
+
     footer {
       text-align: center;
       padding: 1.5rem;
-      background-color: #0f172a;
+      background-color: var(--bg-secondary);
       font-size: 0.9rem;
-      color: #64748b;
+      color: var(--text-secondary);
     }
   </style>
 </head>
-<body>
+<body class="dark-mode">
   <header>
+    <button id="modeToggle">Light Mode</button>
     <h1>Aman Kumar</h1>
     <p>Software Engineer</p>
   </header>
@@ -128,7 +184,7 @@
     <div class="card">
       <h3>Human Anomaly Detection</h3>
       <p>Developed an anomaly detection system using the UCF Crime Dataset and three deep learning models—CNN, VGG16, and Autoencoders—achieving over 99% accuracy across 14 crime categories. Leveraged multilevel classification, transfer learning, and unsupervised techniques to enhance surveillance accuracy and reliability.</p>
-      <a href="https://github.com/amankumar100/Human-Anomaly-Detection" target="_blank" style="color:#38bdf8;">View on GitHub</a>
+      <a href="https://github.com/amankumar100/Human-Anomaly-Detection" target="_blank" style="color:var(--accent);">View on GitHub</a>
     </div>
   </section>
 
@@ -154,5 +210,15 @@
   <footer>
     &copy; Aman Kumar
   </footer>
+
+  <script>
+    const toggleBtn = document.getElementById("modeToggle");
+    const body = document.body;
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      toggleBtn.textContent = body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
+    });
+  </script>
 </body>
 </html>
