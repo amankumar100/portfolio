@@ -8,9 +8,6 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <style>
     :root {
       --bg: #ffffff;
@@ -72,21 +69,15 @@
       position: absolute;
       top: 1rem;
       right: 1rem;
-      padding: 0.5rem;
+      background: transparent;
       border: none;
-      border-radius: 50%;
+      font-size: 1.5rem;
       cursor: pointer;
-      background-color: var(--accent);
-      color: var(--bg);
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s;
+      transition: transform 0.3s ease;
     }
 
     #modeToggle:hover {
-      background-color: #0ea5e9;
+      transform: scale(1.2);
     }
 
     section {
@@ -180,9 +171,7 @@
 </head>
 <body class="dark-mode">
   <header>
-    <button id="modeToggle" aria-label="Toggle Theme">
-      <i class="fas fa-sun"></i>
-    </button>
+    <button id="modeToggle" aria-label="Toggle Theme" title="Toggle Theme">🌙</button>
     <h1>Aman Kumar</h1>
     <p>Software Engineer</p>
   </header>
@@ -228,13 +217,12 @@
 
   <script>
     const toggleBtn = document.getElementById("modeToggle");
-    const icon = toggleBtn.querySelector("i");
     const body = document.body;
 
     toggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
       const isDark = body.classList.contains("dark-mode");
-      icon.className = isDark ? "fas fa-sun" : "fas fa-moon";
+      toggleBtn.textContent = isDark ? "🌙" : "🌞";
     });
   </script>
 </body>
