@@ -212,13 +212,16 @@
   </footer>
 
   <script>
-    const toggleBtn = document.getElementById("modeToggle");
-    const body = document.body;
+  const toggleBtn = document.getElementById("modeToggle");
+  const body = document.body;
+  const icon = toggleBtn.querySelector("i");
 
-    toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-      toggleBtn.textContent = body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
-    });
-  </script>
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    const isDark = body.classList.contains("dark-mode");
+    icon.className = isDark ? "fas fa-sun" : "fas fa-moon";
+  });
+</script>
 </body>
 </html>
+
