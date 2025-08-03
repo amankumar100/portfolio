@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aman Kumar | Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
     :root {
       --bg: #ffffff;
-      --bg-secondary: #f1f5f9;
+      --bg-secondary: #f8fafc;
       --text: #1e293b;
-      --text-secondary: #475569;
+      --text-secondary: #64748b;
       --accent: #38bdf8;
-      --input-bg: #e2e8f0;
-      --border: #cbd5e1;
-      --card-shadow: rgba(0, 0, 0, 0.05);
+      --input-bg: #f1f5f9;
+      --border: #e2e8f0;
+      --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
     }
 
     body.dark-mode {
@@ -26,9 +29,9 @@
       --text: #e2e8f0;
       --text-secondary: #94a3b8;
       --accent: #38bdf8;
-      --input-bg: #0f172a;
+      --input-bg: #1e293b;
       --border: #334155;
-      --card-shadow: rgba(56, 189, 248, 0.15);
+      --card-shadow: 0 8px 30px rgba(56, 189, 248, 0.15);
     }
 
     * {
@@ -38,31 +41,31 @@
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      padding: 0;
       background: var(--bg);
       color: var(--text);
       transition: background 0.3s, color 0.3s;
+      line-height: 1.7;
     }
 
     header {
-      text-align: center;
-      padding: 4rem 2rem;
+      padding: 5rem 2rem 3rem;
       background-color: var(--bg-secondary);
-      border-bottom: 2px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
       position: relative;
     }
 
     header h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2.8rem;
+      font-size: 3rem;
       color: var(--accent);
-      margin: 0;
+      margin-bottom: 0.5rem;
     }
 
     header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
       color: var(--text-secondary);
+      font-size: 1.25rem;
+      margin: 0;
     }
 
     #modeToggle {
@@ -71,8 +74,9 @@
       right: 1rem;
       background: transparent;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
+      color: var(--accent);
       transition: transform 0.3s ease;
     }
 
@@ -81,60 +85,75 @@
     }
 
     section {
-      padding: 3rem 2rem;
-      max-width: 1100px;
+      padding: 4rem 2rem;
+      max-width: 1000px;
       margin: auto;
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
       color: var(--text);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
       text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+      display: inline-block;
+      padding-bottom: 0.5rem;
     }
 
     .card, .contact-form {
-      background-color: var(--bg-secondary);
+      background: var(--bg-secondary);
+      border-radius: 16px;
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px var(--card-shadow);
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       margin-bottom: 2rem;
-      transition: transform 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
     }
 
     .card h3 {
-      margin-top: 0;
       color: var(--accent);
+      margin-top: 0;
     }
 
-    .card p, .contact-form input, .contact-form textarea {
+    .card p {
       color: var(--text-secondary);
-      font-size: 1rem;
     }
 
-    .contact-form input, .contact-form textarea {
+    .card a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
       background: var(--input-bg);
       border: 1px solid var(--border);
-      padding: 0.75rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      width: 100%;
       color: var(--text);
+      border-radius: 10px;
+      padding: 0.9rem;
+      font-size: 1rem;
+      width: 100%;
+      margin-bottom: 1.2rem;
+      outline: none;
     }
 
     .contact-form button {
       background-color: var(--accent);
-      color: var(--bg);
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 8px;
+      color: white;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
       font-weight: 600;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
       transition: background 0.3s ease;
       display: block;
@@ -147,13 +166,14 @@
 
     .socials {
       text-align: center;
+      margin-top: 2rem;
     }
 
     .socials a {
       margin: 0 1rem;
+      font-size: 1.7rem;
       color: var(--accent);
-      text-decoration: none;
-      font-size: 1.5rem;
+      transition: color 0.3s ease;
     }
 
     .socials a:hover {
@@ -162,16 +182,26 @@
 
     footer {
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem;
       background-color: var(--bg-secondary);
-      font-size: 0.9rem;
       color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
     }
   </style>
 </head>
 <body class="dark-mode">
   <header>
-    <button id="modeToggle" aria-label="Toggle Theme" title="Toggle Theme">🌙</button>
+    <button id="modeToggle" title="Toggle Theme">🌙</button>
     <h1>Aman Kumar</h1>
     <p>Software Engineer</p>
   </header>
@@ -179,7 +209,7 @@
   <section>
     <h2>About Me</h2>
     <div class="card">
-      <p>I’m Aman Kumar, a Computer Science and Information Technology graduate from C.V. Raman Global University, Odisha. Born and raised in Jamshedpur, I hold a job offer from Tata Consultancy Services (TCS). I’m passionate about open source contributions and constantly explore new technologies. Outside of tech, I enjoy painting, drawing, sketching, and playing sports.</p>
+      <p>I’m Aman Kumar, a CSIT graduate from C.V. Raman Global University. With a TCS offer and a passion for open-source, I thrive at the intersection of innovation and community. Beyond code, I enjoy sketching, painting, and sports.</p>
     </div>
   </section>
 
@@ -187,8 +217,8 @@
     <h2>Projects</h2>
     <div class="card">
       <h3>Human Anomaly Detection</h3>
-      <p>Developed an anomaly detection system using the UCF Crime Dataset and three deep learning models—CNN, VGG16, and Autoencoders—achieving over 99% accuracy across 14 crime categories. Leveraged multilevel classification, transfer learning, and unsupervised techniques to enhance surveillance accuracy and reliability.</p>
-      <a href="https://github.com/amankumar100/Human-Anomaly-Detection" target="_blank" style="color:var(--accent);">View on GitHub</a>
+      <p>Built a surveillance enhancement system using the UCF Crime Dataset and deep learning (CNN, VGG16, Autoencoders). Achieved 99%+ accuracy across 14 crime types through multilevel classification, transfer learning, and unsupervised methods.</p>
+      <a href="https://github.com/amankumar100/Human-Anomaly-Detection" target="_blank">View on GitHub</a>
     </div>
   </section>
 
@@ -212,7 +242,7 @@
   </section>
 
   <footer>
-    &copy; Aman Kumar
+    &copy; 2025 Aman Kumar
   </footer>
 
   <script>
@@ -221,8 +251,7 @@
 
     toggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      const isDark = body.classList.contains("dark-mode");
-      toggleBtn.textContent = isDark ? "🌙" : "🌞";
+      toggleBtn.textContent = body.classList.contains("dark-mode") ? "🌙" : "🌞";
     });
   </script>
 </body>
