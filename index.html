@@ -65,6 +65,7 @@
       color: var(--text-secondary);
     }
 
+    /* Toggle Button */
     #modeToggle {
       position: absolute;
       top: 1rem;
@@ -73,16 +74,18 @@
       border: none;
       cursor: pointer;
       padding: 0;
+      outline: none;
     }
 
-    #modeToggle img {
-      width: 28px;
-      height: 28px;
-      transition: transform 0.3s ease;
+    .toggle-icon {
+      width: 32px;
+      height: 32px;
+      fill: var(--accent);
+      transition: transform 0.4s ease;
     }
 
-    #modeToggle:hover img {
-      transform: scale(1.2);
+    #modeToggle:hover .toggle-icon {
+      transform: rotate(20deg);
     }
 
     section {
@@ -101,44 +104,20 @@
       opacity: 0;
     }
 
-    /* Slide animations */
     @keyframes slide-in-left {
-      from {
-        opacity: 0;
-        transform: translateX(-100px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
     @keyframes slide-in-right {
-      from {
-        opacity: 0;
-        transform: translateX(100px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      from { opacity: 0; transform: translateX(100px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
-    section:nth-of-type(1) h2 {
-      animation: slide-in-left 1s ease-out forwards;
-    }
-
-    section:nth-of-type(2) h2 {
-      animation: slide-in-right 1s ease-out forwards;
-    }
-
-    section:nth-of-type(3) h2 {
-      animation: slide-in-left 1s ease-out forwards;
-    }
-
-    section:nth-of-type(4) h2 {
-      animation: slide-in-right 1s ease-out forwards;
-    }
+    section:nth-of-type(1) h2 { animation: slide-in-left 1s ease-out forwards; }
+    section:nth-of-type(2) h2 { animation: slide-in-right 1s ease-out forwards; }
+    section:nth-of-type(3) h2 { animation: slide-in-left 1s ease-out forwards; }
+    section:nth-of-type(4) h2 { animation: slide-in-right 1s ease-out forwards; }
 
     .card, .contact-form {
       background-color: var(--bg-secondary);
@@ -216,8 +195,10 @@
 </head>
 <body class="dark-mode">
   <header>
-    <button id="modeToggle" title="Toggle Theme">
-      <img id="themeIcon" src="moon.png" alt="Theme Icon">
+    <button id="modeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+      <svg id="themeIcon" class="toggle-icon" viewBox="0 0 24 24">
+        <path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm6.364 3.636a1 1 0 0 1 1.414 1.414L18.414 8.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM22 11a1 1 0 0 1 0 2h-2a1 1 0 1 1 0-2h2zM6.343 5.05a1 1 0 1 1 1.414 1.414L6.393 7.828A1 1 0 0 1 4.98 6.414l1.364-1.364zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-6.364-3.636a1 1 0 0 1 1.414 1.414L6.414 18.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM4 11a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2h2z" />
+      </svg>
     </button>
     <h1>Aman Kumar</h1>
     <p>Software Engineer</p>
@@ -234,7 +215,7 @@
     <h2>Projects</h2>
     <div class="card">
       <h3>Human Anomaly Detection</h3>
-      <p>Developed an anomaly detection system using the UCF Crime Dataset and three deep learning models—CNN, VGG16, and Autoencoders—achieving over 99% accuracy across 14 crime categories. Leveraged multilevel classification, transfer learning, and unsupervised techniques to enhance surveillance accuracy and reliability.</p>
+      <p>Developed an anomaly detection system using the UCF Crime Dataset and three deep learning models—CNN, VGG16, and Autoencoders—achieving over 99% accuracy across 14 crime categories.</p>
       <a href="https://github.com/amankumar100/Human-Anomaly-Detection" target="_blank" style="color:var(--accent);">View on GitHub</a>
     </div>
   </section>
@@ -269,9 +250,12 @@
 
     toggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      const isDark = body.classList.contains("dark-mode");
-      themeIcon.src = isDark ? "moon.png" : "sun.png";
-      themeIcon.alt = isDark ? "Dark Mode" : "Light Mode";
+
+      if (body.classList.contains("dark-mode")) {
+        themeIcon.innerHTML = `<path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm6.364 3.636a1 1 0 0 1 1.414 1.414L18.414 8.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM22 11a1 1 0 0 1 0 2h-2a1 1 0 1 1 0-2h2zM6.343 5.05a1 1 0 1 1 1.414 1.414L6.393 7.828A1 1 0 0 1 4.98 6.414l1.364-1.364zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-6.364-3.636a1 1 0 0 1 1.414 1.414L6.414 18.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM4 11a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2h2z"/>`;
+      } else {
+        themeIcon.innerHTML = `<path d="M21.64 13.34A9 9 0 0 1 10.66 2.36 7 7 0 1 0 21.64 13.34z"/>`;
+      }
     });
   </script>
 </body>
