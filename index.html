@@ -98,6 +98,7 @@
       border-bottom: 2px solid var(--border);
       display: inline-block;
       padding-bottom: 0.5rem;
+      opacity: 0;
     }
 
     .card, .contact-form {
@@ -107,6 +108,10 @@
       box-shadow: var(--card-shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fade-up 1s ease-out forwards;
+      animation-delay: 0.3s;
     }
 
     .card:hover {
@@ -197,6 +202,52 @@
         font-size: 1.7rem;
       }
     }
+
+    /* Animations */
+    @keyframes slide-in-left {
+      from {
+        opacity: 0;
+        transform: translateX(-80px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slide-in-right {
+      from {
+        opacity: 0;
+        transform: translateX(80px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fade-up {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section:nth-of-type(1) h2 {
+      animation: slide-in-left 1s ease-out forwards;
+    }
+
+    section:nth-of-type(2) h2 {
+      animation: slide-in-right 1s ease-out forwards;
+    }
+
+    section:nth-of-type(3) h2 {
+      animation: slide-in-left 1s ease-out forwards;
+    }
+
+    section:nth-of-type(4) h2 {
+      animation: slide-in-right 1s ease-out forwards;
+    }
   </style>
 </head>
 <body class="dark-mode">
@@ -209,7 +260,7 @@
   <section>
     <h2>About Me</h2>
     <div class="card">
-      <p>I’m Aman Kumar, an engineering graduate in Computer Science and Information Technology from C.V. Raman Global University. With a TCS offer and a passion for open-source, I thrive at the intersection of innovation and community. Beyond code, I enjoy sketching, painting, and sports.</p>
+      <p>I’m Aman Kumar, a CSIT graduate from C.V. Raman Global University. With a TCS offer and a passion for open-source, I thrive at the intersection of innovation and community. Beyond code, I enjoy sketching, painting, and sports.</p>
     </div>
   </section>
 
@@ -256,6 +307,3 @@
   </script>
 </body>
 </html>
-
-
-
