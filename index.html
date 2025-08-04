@@ -6,7 +6,10 @@
   <title>Aman Kumar | Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome for social icons -->
+  <script src="https://kit.fontawesome.com/a2e5db9b9d.js" crossorigin="anonymous"></script>
 
   <style>
     :root {
@@ -31,9 +34,7 @@
       --card-shadow: rgba(56, 189, 248, 0.15);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -65,7 +66,6 @@
       color: var(--text-secondary);
     }
 
-    /* Toggle Button */
     #modeToggle {
       position: absolute;
       top: 1rem;
@@ -73,19 +73,14 @@
       background: transparent;
       border: none;
       cursor: pointer;
-      padding: 0;
-      outline: none;
+      transition: transform 0.3s ease;
     }
+    #modeToggle:hover { transform: scale(1.2); }
 
-    .toggle-icon {
-      width: 32px;
-      height: 32px;
-      fill: var(--accent);
-      transition: transform 0.4s ease;
-    }
-
-    #modeToggle:hover .toggle-icon {
-      transform: rotate(20deg);
+    #themeIcon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--accent);
     }
 
     section {
@@ -95,29 +90,22 @@
     }
 
     h2 {
-      font-size: 2.2rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       color: var(--text);
-      text-align: center;
-      margin: 0 auto 2rem;
+      border-bottom: 1px solid var(--border);
       padding-bottom: 0.5rem;
-      width: fit-content;
-      opacity: 0;
+      text-align: center;
+      display: inline-block;
+      position: relative;
+      animation: slideLeftRight 4s infinite alternate ease-in-out;
     }
 
-    @keyframes slide-in-left {
-      from { opacity: 0; transform: translateX(-100px); }
-      to { opacity: 1; transform: translateX(0); }
+    @keyframes slideLeftRight {
+      0% { transform: translateX(-20px); }
+      50% { transform: translateX(20px); }
+      100% { transform: translateX(-20px); }
     }
-
-    @keyframes slide-in-right {
-      from { opacity: 0; transform: translateX(100px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    section:nth-of-type(1) h2 { animation: slide-in-left 1s ease-out forwards; }
-    section:nth-of-type(2) h2 { animation: slide-in-right 1s ease-out forwards; }
-    section:nth-of-type(3) h2 { animation: slide-in-left 1s ease-out forwards; }
-    section:nth-of-type(4) h2 { animation: slide-in-right 1s ease-out forwards; }
 
     .card, .contact-form {
       background-color: var(--bg-secondary);
@@ -128,9 +116,7 @@
       transition: transform 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+    .card:hover { transform: translateY(-5px); }
 
     .card h3 {
       margin-top: 0;
@@ -164,25 +150,18 @@
       display: block;
       margin: 0 auto;
     }
-
-    .contact-form button:hover {
-      background-color: #0ea5e9;
-    }
+    .contact-form button:hover { background-color: #0ea5e9; }
 
     .socials {
       text-align: center;
     }
-
     .socials a {
       margin: 0 1rem;
       color: var(--accent);
       text-decoration: none;
       font-size: 1.5rem;
     }
-
-    .socials a:hover {
-      color: #93c5fd;
-    }
+    .socials a:hover { color: #93c5fd; }
 
     footer {
       text-align: center;
@@ -196,9 +175,7 @@
 <body class="dark-mode">
   <header>
     <button id="modeToggle" title="Toggle Theme" aria-label="Toggle Theme">
-      <svg id="themeIcon" class="toggle-icon" viewBox="0 0 24 24">
-        <path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm6.364 3.636a1 1 0 0 1 1.414 1.414L18.414 8.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM22 11a1 1 0 0 1 0 2h-2a1 1 0 1 1 0-2h2zM6.343 5.05a1 1 0 1 1 1.414 1.414L6.393 7.828A1 1 0 0 1 4.98 6.414l1.364-1.364zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-6.364-3.636a1 1 0 0 1 1.414 1.414L6.414 18.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM4 11a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2h2z" />
-      </svg>
+      <span id="themeIcon"></span>
     </button>
     <h1>Aman Kumar</h1>
     <p>Software Engineer</p>
@@ -215,7 +192,7 @@
     <h2>Projects</h2>
     <div class="card">
       <h3>Human Anomaly Detection</h3>
-      <p>Developed an anomaly detection system using the UCF Crime Dataset and three deep learning models—CNN, VGG16, and Autoencoders—achieving over 99% accuracy across 14 crime categories.</p>
+      <p>Developed an anomaly detection system using the UCF Crime Dataset and three deep learning models—CNN, VGG16, and Autoencoders—achieving over 99% accuracy across 14 crime categories. Leveraged multilevel classification, transfer learning, and unsupervised techniques to enhance surveillance accuracy and reliability.</p>
       <a href="https://github.com/amankumar100/Human-Anomaly-Detection" target="_blank" style="color:var(--accent);">View on GitHub</a>
     </div>
   </section>
@@ -248,15 +225,24 @@
     const themeIcon = document.getElementById("themeIcon");
     const body = document.body;
 
+    function setIcon() {
+      const isDark = body.classList.contains("dark-mode");
+
+      themeIcon.innerHTML = isDark
+        ? `<svg viewBox="0 0 24 24" fill="currentColor" class="toggle-icon">
+             <path d="M21.64 13.34A9 9 0 0 1 10.66 2.36 7 7 0 1 0 21.64 13.34z"/>
+           </svg>`
+        : `<svg viewBox="0 0 24 24" fill="currentColor" class="toggle-icon">
+             <path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm6.364 3.636a1 1 0 0 1 1.414 1.414L18.414 8.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM22 11a1 1 0 0 1 0 2h-2a1 1 0 1 1 0-2h2zM6.343 5.05a1 1 0 1 1 1.414 1.414L6.393 7.828A1 1 0 0 1 4.98 6.414l1.364-1.364zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-6.364-3.636a1 1 0 0 1 1.414 1.414L6.414 18.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM4 11a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2h2z"/>
+           </svg>`;
+    }
+
     toggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-
-      if (body.classList.contains("dark-mode")) {
-        themeIcon.innerHTML = `<path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm6.364 3.636a1 1 0 0 1 1.414 1.414L18.414 8.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM22 11a1 1 0 0 1 0 2h-2a1 1 0 1 1 0-2h2zM6.343 5.05a1 1 0 1 1 1.414 1.414L6.393 7.828A1 1 0 0 1 4.98 6.414l1.364-1.364zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-6.364-3.636a1 1 0 0 1 1.414 1.414L6.414 18.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM4 11a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2h2z"/>`;
-      } else {
-        themeIcon.innerHTML = `<path d="M21.64 13.34A9 9 0 0 1 10.66 2.36 7 7 0 1 0 21.64 13.34z"/>`;
-      }
+      setIcon();
     });
+
+    setIcon();
   </script>
 </body>
 </html>
