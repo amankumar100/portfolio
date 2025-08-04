@@ -6,21 +6,18 @@
   <title>Aman Kumar | Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
-
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --bg: #ffffff;
-      --bg-secondary: #f8fafc;
+      --bg-secondary: #f1f5f9;
       --text: #1e293b;
-      --text-secondary: #64748b;
+      --text-secondary: #475569;
       --accent: #38bdf8;
-      --input-bg: #f1f5f9;
-      --border: #e2e8f0;
-      --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      --input-bg: #e2e8f0;
+      --border: #cbd5e1;
+      --card-shadow: rgba(0, 0, 0, 0.05);
     }
 
     body.dark-mode {
@@ -29,9 +26,9 @@
       --text: #e2e8f0;
       --text-secondary: #94a3b8;
       --accent: #38bdf8;
-      --input-bg: #1e293b;
+      --input-bg: #0f172a;
       --border: #334155;
-      --card-shadow: 0 8px 30px rgba(56, 189, 248, 0.15);
+      --card-shadow: rgba(56, 189, 248, 0.15);
     }
 
     * {
@@ -41,31 +38,31 @@
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
+      padding: 0;
       background: var(--bg);
       color: var(--text);
       transition: background 0.3s, color 0.3s;
-      line-height: 1.7;
     }
 
     header {
-      padding: 5rem 2rem 3rem;
-      background-color: var(--bg-secondary);
-      border-bottom: 1px solid var(--border);
       text-align: center;
+      padding: 4rem 2rem;
+      background-color: var(--bg-secondary);
+      border-bottom: 2px solid var(--border);
       position: relative;
     }
 
     header h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: var(--accent);
-      margin-bottom: 0.5rem;
+      margin: 0;
     }
 
     header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
       color: var(--text-secondary);
-      font-size: 1.25rem;
-      margin: 0;
     }
 
     #modeToggle {
@@ -74,19 +71,23 @@
       right: 1rem;
       background: transparent;
       border: none;
-      font-size: 1.8rem;
       cursor: pointer;
-      color: var(--accent);
+      padding: 0;
+    }
+
+    #modeToggle img {
+      width: 28px;
+      height: 28px;
       transition: transform 0.3s ease;
     }
 
-    #modeToggle:hover {
+    #modeToggle:hover img {
       transform: scale(1.2);
     }
 
     section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
+      padding: 3rem 2rem;
+      max-width: 1100px;
       margin: auto;
     }
 
@@ -98,10 +99,9 @@
       padding-bottom: 0.5rem;
       width: fit-content;
       opacity: 0;
-      transform: translateX(0);
     }
 
-    /* Animations */
+    /* Slide animations */
     @keyframes slide-in-left {
       from {
         opacity: 0;
@@ -124,13 +124,6 @@
       }
     }
 
-    @keyframes fade-up {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     section:nth-of-type(1) h2 {
       animation: slide-in-left 1s ease-out forwards;
     }
@@ -148,63 +141,45 @@
     }
 
     .card, .contact-form {
-      background: var(--bg-secondary);
-      border-radius: 16px;
+      background-color: var(--bg-secondary);
       padding: 2rem;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 0 15px var(--card-shadow);
       margin-bottom: 2rem;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fade-up 1s ease-out forwards;
-      animation-delay: 0.3s;
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
     }
 
     .card h3 {
-      color: var(--accent);
       margin-top: 0;
-    }
-
-    .card p {
-      color: var(--text-secondary);
-    }
-
-    .card a {
       color: var(--accent);
-      font-weight: 600;
-      text-decoration: none;
     }
 
-    .card a:hover {
-      text-decoration: underline;
+    .card p, .contact-form input, .contact-form textarea {
+      color: var(--text-secondary);
+      font-size: 1rem;
     }
 
-    .contact-form input,
-    .contact-form textarea {
+    .contact-form input, .contact-form textarea {
       background: var(--input-bg);
       border: 1px solid var(--border);
-      color: var(--text);
-      border-radius: 10px;
-      padding: 0.9rem;
-      font-size: 1rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
       width: 100%;
-      margin-bottom: 1.2rem;
-      outline: none;
+      color: var(--text);
     }
 
     .contact-form button {
       background-color: var(--accent);
-      color: white;
-      padding: 0.8rem 2rem;
-      font-size: 1rem;
-      font-weight: 600;
+      color: var(--bg);
+      padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
+      font-weight: 600;
       cursor: pointer;
       transition: background 0.3s ease;
       display: block;
@@ -217,14 +192,13 @@
 
     .socials {
       text-align: center;
-      margin-top: 2rem;
     }
 
     .socials a {
       margin: 0 1rem;
-      font-size: 1.7rem;
       color: var(--accent);
-      transition: color 0.3s ease;
+      text-decoration: none;
+      font-size: 1.5rem;
     }
 
     .socials a:hover {
@@ -233,26 +207,18 @@
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 1.5rem;
       background-color: var(--bg-secondary);
+      font-size: 0.9rem;
       color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.7rem;
-      }
     }
   </style>
 </head>
 <body class="dark-mode">
   <header>
-    <button id="modeToggle" title="Toggle Theme">🌙</button>
+    <button id="modeToggle" title="Toggle Theme">
+      <img id="themeIcon" src="moon.png" alt="Theme Icon">
+    </button>
     <h1>Aman Kumar</h1>
     <p>Software Engineer</p>
   </header>
@@ -260,7 +226,7 @@
   <section>
     <h2>About Me</h2>
     <div class="card">
-      <p>I’m Aman Kumar, a CSIT graduate from C.V. Raman Global University. With a TCS offer and a passion for open-source, I thrive at the intersection of innovation and community. Beyond code, I enjoy sketching, painting, and sports.</p>
+      <p>I’m Aman Kumar, a Computer Science and Information Technology graduate from C.V. Raman Global University, Odisha. Born and raised in Jamshedpur, I hold a job offer from Tata Consultancy Services (TCS). I’m passionate about open source contributions and constantly explore new technologies. Outside of tech, I enjoy painting, drawing, sketching, and playing sports.</p>
     </div>
   </section>
 
@@ -268,8 +234,8 @@
     <h2>Projects</h2>
     <div class="card">
       <h3>Human Anomaly Detection</h3>
-      <p>Built a surveillance enhancement system using the UCF Crime Dataset and deep learning (CNN, VGG16, Autoencoders). Achieved 99%+ accuracy across 14 crime types through multilevel classification, transfer learning, and unsupervised methods.</p>
-      <a href="https://github.com/amankumar100/Human-Anomaly-Detection" target="_blank">View on GitHub</a>
+      <p>Developed an anomaly detection system using the UCF Crime Dataset and three deep learning models—CNN, VGG16, and Autoencoders—achieving over 99% accuracy across 14 crime categories. Leveraged multilevel classification, transfer learning, and unsupervised techniques to enhance surveillance accuracy and reliability.</p>
+      <a href="https://github.com/amankumar100/Human-Anomaly-Detection" target="_blank" style="color:var(--accent);">View on GitHub</a>
     </div>
   </section>
 
@@ -293,16 +259,19 @@
   </section>
 
   <footer>
-    &copy; 2025 Aman Kumar
+    &copy; Aman Kumar
   </footer>
 
   <script>
     const toggleBtn = document.getElementById("modeToggle");
+    const themeIcon = document.getElementById("themeIcon");
     const body = document.body;
 
     toggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      toggleBtn.textContent = body.classList.contains("dark-mode") ? "🌙" : "🌞";
+      const isDark = body.classList.contains("dark-mode");
+      themeIcon.src = isDark ? "moon.png" : "sun.png";
+      themeIcon.alt = isDark ? "Dark Mode" : "Light Mode";
     });
   </script>
 </body>
