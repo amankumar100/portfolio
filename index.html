@@ -192,6 +192,74 @@
       font-size: 0.9rem;
       color: var(--text-secondary);
     }
+
+  #chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: var(--bg-secondary);
+    color: var(--text);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+  #chatbot-header {
+    background: var(--accent);
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+  #chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 250px;
+  }
+  .bot-message, .user-message {
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+  }
+  .bot-message {
+    background: var(--bg-secondary);
+    color: var(--text);
+  }
+  .user-message {
+    background: var(--accent);
+    color: white;
+    margin-left: auto;
+  }
+  #chatbot-input-area {
+    display: flex;
+    border-top: 1px solid var(--border);
+  }
+  #chatbot-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    outline: none;
+    background: var(--input-bg);
+    color: var(--text);
+  }
+  #chatbot-send {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+  #chatbot-send:hover {
+    background: #0ea5e9;
+  }
+
   </style>
 </head>
 <body class="dark-mode">
@@ -268,5 +336,49 @@
 
     setIcon();
   </script>
+
+  <!-- Chatbot Widget -->
+<div id="chatbot">
+  <div id="chatbot-header">Chat with Me</div>
+  <div id="chatbot-messages"></div>
+  <div id="chatbot-input-area">
+    <input type="text" id="chatbot-input" placeholder="Type your message..." />
+    <button id="chatbot-send">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotSend = document.getElementById('chatbot-send');
+
+  function addMessage(content, sender) {
+    const msg = document.createElement('div');
+    msg.className = sender === 'bot' ? 'bot-message' : 'user-message';
+    msg.textContent = content;
+    chatbotMessages.appendChild(msg);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  chatbotSend.addEventListener('click', () => {
+    const userMsg = chatbotInput.value.trim();
+    if (!userMsg) return;
+    addMessage(userMsg, 'user');
+    chatbotInput.value = '';
+
+    // Simulated bot response
+    setTimeout(() => {
+      let botReply = "I’m here to help! You said: " + userMsg;
+      addMessage(botReply, 'bot');
+    }, 500);
+  });
+
+  chatbotInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') chatbotSend.click();
+  });
+
+  addMessage("Hi! I’m your personal chatbot. How can I help you today?", 'bot');
+</script>
+
 </body>
 </html>
