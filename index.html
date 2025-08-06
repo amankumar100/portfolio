@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome 6 Free CDN for social icons -->
+  <!-- Font Awesome 6 Free CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
 
   <style>
@@ -34,9 +34,7 @@
       --card-shadow: rgba(56, 189, 248, 0.15);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -84,9 +82,7 @@
       transition: transform 0.3s;
     }
 
-    #modeToggle:hover svg {
-      transform: scale(1.2);
-    }
+    #modeToggle:hover svg { transform: scale(1.2); }
 
     section {
       padding: 3rem 2rem;
@@ -131,15 +127,7 @@
 
     .card:hover { transform: translateY(-5px); }
 
-    .card h3 {
-      margin-top: 0;
-      color: var(--accent);
-    }
-
-    .card p, .contact-form input, .contact-form textarea {
-      color: var(--text-secondary);
-      font-size: 1rem;
-    }
+    .card h3 { color: var(--accent); margin-top: 0; }
 
     .contact-form input, .contact-form textarea {
       background: var(--input-bg);
@@ -159,19 +147,14 @@
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
       display: block;
       margin: 0 auto;
+      transition: background 0.3s ease;
     }
 
     .contact-form button:hover { background-color: #0ea5e9; }
 
-    .social-links {
-      text-align: center;
-      margin-top: 1rem;
-      padding: 1rem 0;
-    }
-
+    .social-links { text-align: center; margin-top: 1rem; }
     .social-links a {
       color: var(--accent);
       font-size: 30px;
@@ -179,7 +162,6 @@
       display: inline-block;
       transition: transform 0.3s ease, color 0.3s ease;
     }
-
     .social-links a:hover {
       transform: scale(1.2);
       color: #60a5fa;
@@ -193,96 +175,79 @@
       color: var(--text-secondary);
     }
 
-  /* Chatbot Icon */
-  #chatbot-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #0ea5e9;
-    color: white;
-    font-size: 22px;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-    z-index: 1000;
-  }
-  #chatbot-icon:hover {
-    transform: scale(1.1);
-    background: #0284c7;
-  }
+    /* Chatbot */
+    #chatbot-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0ea5e9;
+      color: white;
+      font-size: 22px;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+      z-index: 1000;
+    }
+    #chatbot-icon:hover { transform: scale(1.1); background: #0284c7; }
 
-  /* Chatbot Box */
-  #chatbot {
-    position: fixed;
-    bottom: 70px;
-    right: 20px;
-    width: 300px;
-    background: #1e293b;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    font-family: sans-serif;
-    z-index: 1000;
-  }
-  #chatbot-header {
-    background: #0ea5e9;
-    padding: 10px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  #chatbot-close {
-    cursor: pointer;
-  }
-  #chatbot-messages {
-    padding: 10px;
-    overflow-y: auto;
-    max-height: 250px;
-    font-size: 14px;
-  }
-  .bot-message, .user-message {
-    margin: 5px 0;
-    padding: 8px;
-    border-radius: 8px;
-    max-width: 80%;
-  }
-  .bot-message {
-    background: #334155;
-  }
-  .user-message {
-    background: #0ea5e9;
-    margin-left: auto;
-  }
-  #chatbot-input-area {
-    display: flex;
-  }
-  #chatbot-input {
-    flex: 1;
-    padding: 8px;
-    border: none;
-    outline: none;
-  }
-  #chatbot-send {
-    background: #0ea5e9;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-
+    #chatbot {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      width: 300px;
+      background: #1e293b;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: sans-serif;
+      z-index: 1000;
+    }
+    #chatbot-header {
+      background: #0ea5e9;
+      padding: 10px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #chatbot-messages {
+      padding: 10px;
+      overflow-y: auto;
+      max-height: 250px;
+      font-size: 14px;
+    }
+    .bot-message, .user-message {
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 8px;
+      max-width: 80%;
+    }
+    .bot-message { background: #334155; }
+    .user-message { background: #0ea5e9; margin-left: auto; }
+    #chatbot-input-area { display: flex; }
+    #chatbot-input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+    }
+    #chatbot-send {
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body class="dark-mode">
   <header>
-    <button id="modeToggle" title="Toggle Theme" aria-label="Toggle Theme">
-      <span id="themeIcon"></span>
-    </button>
+    <button id="modeToggle" title="Toggle Theme"><span id="themeIcon"></span></button>
     <h1>Aman Kumar</h1>
     <p>Software Engineer</p>
   </header>
@@ -290,7 +255,7 @@
   <section>
     <h2>About Me</h2>
     <div class="card">
-      <p>I’m Aman Kumar, a Computer Science and Information Technology graduate from C.V. Raman Global University, Odisha. Born and raised in Jamshedpur, I hold a job offer from Tata Consultancy Services (TCS). I’m passionate about open source contributions and constantly explore new technologies. Outside of tech, I enjoy painting, drawing, sketching, and playing sports.</p>
+      <p>I’m Aman Kumar, a Computer Science and Information Technology graduate...</p>
     </div>
   </section>
 
@@ -298,7 +263,7 @@
     <h2>Projects</h2>
     <div class="card">
       <h3>Human Anomaly Detection</h3>
-      <p>Developed an anomaly detection system using the UCF Crime Dataset and three deep learning models—CNN, VGG16, and Autoencoders—achieving over 99% accuracy across 14 crime categories. Leveraged multilevel classification, transfer learning, and unsupervised techniques to enhance surveillance accuracy and reliability.</p>
+      <p>Developed an anomaly detection system...</p>
       <a href="https://github.com/amankumar100/Human-Anomaly-Detection" target="_blank" style="color:var(--accent);">View on GitHub</a>
     </div>
   </section>
@@ -313,110 +278,77 @@
     </form>
   </section>
 
-  <!-- Connect with Me Section -->
   <section id="connect">
     <h2>Connect with Me</h2>
     <div class="social-links">
-        <a href="https://www.linkedin.com/in/amankumar8025" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/amankumar100" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:kr.aman8025@gmail.com" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-        </a>
+      <a href="https://www.linkedin.com/in/amankumar8025" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/amankumar100" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:kr.aman8025@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
   </section>
 
-  <footer>
-    &copy; Aman Kumar
-  </footer>
+  <footer>&copy; Aman Kumar</footer>
+
+  <!-- Chatbot -->
+  <div id="chatbot-icon">💬</div>
+  <div id="chatbot">
+    <div id="chatbot-header">Chat with Me <span id="chatbot-close">&times;</span></div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input-area">
+      <input type="text" id="chatbot-input" placeholder="Type your message..." />
+      <button id="chatbot-send">Send</button>
+    </div>
+  </div>
 
   <script>
+    // Theme Toggle
     const toggleBtn = document.getElementById("modeToggle");
     const themeIcon = document.getElementById("themeIcon");
     const body = document.body;
-
     function setIcon() {
-      const isDark = body.classList.contains("dark-mode");
-      themeIcon.innerHTML = isDark
-        ? `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm6.364 3.636a1 1 0 0 1 1.414 1.414L18.414 8.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM22 11a1 1 0 0 1 0 2h-2a1 1 0 1 1 0-2h2zM6.343 5.05a1 1 0 1 1 1.414 1.414L6.393 7.828A1 1 0 0 1 4.98 6.414l1.364-1.364zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-6.364-3.636a1 1 0 0 1 1.414 1.414L6.414 18.414a1 1 0 0 1-1.414-1.414l1.364-1.364zM4 11a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2h2z"/></svg>`
-        : `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.64 13.34A9 9 0 0 1 10.66 2.36 7 7 0 1 0 21.64 13.34z"/></svg>`;
+      themeIcon.innerHTML = body.classList.contains("dark-mode")
+        ? `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2..."/></svg>`
+        : `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.64..."/></svg>`;
     }
-
     toggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
       setIcon();
     });
-
     setIcon();
+
+    // Chatbot Logic
+    const chatbot = document.getElementById('chatbot');
+    const chatbotIcon = document.getElementById('chatbot-icon');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotSend = document.getElementById('chatbot-send');
+
+    chatbotIcon.addEventListener('click', () => chatbot.style.display = 'flex');
+    chatbotClose.addEventListener('click', () => chatbot.style.display = 'none');
+
+    function addMessage(message, isUser = false) {
+      const msg = document.createElement('div');
+      msg.className = isUser ? 'user-message' : 'bot-message';
+      msg.textContent = message;
+      chatbotMessages.appendChild(msg);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    chatbotSend.addEventListener('click', sendMessage);
+    chatbotInput.addEventListener('keypress', e => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+      const text = chatbotInput.value.trim();
+      if (!text) return;
+      addMessage(text, true);
+      chatbotInput.value = '';
+      setTimeout(() => {
+        addMessage("Thanks for your message! I'll get back to you soon.");
+      }, 500);
+    }
   </script>
-
-<!-- Chatbot Icon -->
-<div id="chatbot-icon">💬</div>
-
-<!-- Chatbot Box -->
-<div id="chatbot" style="display: none;">
-  <div id="chatbot-header">
-    Chat with Me
-    <span id="chatbot-close">&times;</span>
-  </div>
-  <div id="chatbot-messages"></div>
-  <div id="chatbot-input-area">
-    <input type="text" id="chatbot-input" placeholder="Type your message..." />
-    <button id="chatbot-send">Send</button>
-  </div>
-</div>
-
-<script>
-  const chatbot = document.getElementById('chatbot');
-  const chatbotIcon = document.getElementById('chatbot-icon');
-  const chatbotClose = document.getElementById('chatbot-close');
-  const chatbotMessages = document.getElementById('chatbot-messages');
-  const chatbotInput = document.getElementById('chatbot-input');
-  const chatbotSend = document.getElementById('chatbot-send');
-
-  function addMessage(content, sender) {
-    const msg = document.createElement('div');
-    msg.className = sender === 'bot' ? 'bot-message' : 'user-message';
-    msg.textContent = content;
-    chatbotMessages.appendChild(msg);
-    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-  }
-
-  function getBotReply(question) {
-    // Simple keyword-based responses
-    const q = question.toLowerCase();
-    if (q.includes("hello") || q.includes("hi")) return "Hello! How can I help you today?";
-    if (q.includes("name")) return "I’m your portfolio assistant chatbot!";
-    if (q.includes("projects")) return "You can scroll down to see my projects in detail.";
-    if (q.includes("contact")) return "You can contact me via email at: aman@example.com";
-    return "I'm not sure, but I’m learning!";
-  }
-
-  chatbotSend.addEventListener('click', () => {
-    const userMsg = chatbotInput.value.trim();
-    if (!userMsg) return;
-    addMessage(userMsg, 'user');
-    chatbotInput.value = '';
-    setTimeout(() => addMessage(getBotReply(userMsg), 'bot'), 500);
-  });
-
-  chatbotInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') chatbotSend.click();
-  });
-
-  chatbotIcon.addEventListener('click', () => {
-    chatbot.style.display = 'flex';
-    chatbotIcon.style.display = 'none';
-  });
-
-  chatbotClose.addEventListener('click', () => {
-    chatbot.style.display = 'none';
-    chatbotIcon.style.display = 'block';
-  });
-</script>
-
 </body>
 </html>
