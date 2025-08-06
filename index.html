@@ -8,8 +8,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome for social icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome 6 Free CDN for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
 
   <style>
     :root {
@@ -115,21 +115,10 @@
       to { opacity: 1; left: 0; }
     }
 
-    section:nth-of-type(1) h2 {
-      animation: slide-in-left 1s ease-out forwards;
-    }
-
-    section:nth-of-type(2) h2 {
-      animation: slide-in-right 1s ease-out forwards;
-    }
-
-    section:nth-of-type(3) h2 {
-      animation: slide-in-left 1s ease-out forwards;
-    }
-
-    section:nth-of-type(4) h2 {
-      animation: slide-in-right 1s ease-out forwards;
-    }
+    section:nth-of-type(1) h2 { animation: slide-in-left 1s ease-out forwards; }
+    section:nth-of-type(2) h2 { animation: slide-in-right 1s ease-out forwards; }
+    section:nth-of-type(3) h2 { animation: slide-in-left 1s ease-out forwards; }
+    section:nth-of-type(4) h2 { animation: slide-in-right 1s ease-out forwards; }
 
     .card, .contact-form {
       background-color: var(--bg-secondary);
@@ -140,9 +129,7 @@
       transition: transform 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+    .card:hover { transform: translateY(-5px); }
 
     .card h3 {
       margin-top: 0;
@@ -177,25 +164,23 @@
       margin: 0 auto;
     }
 
-    .contact-form button:hover {
-      background-color: #0ea5e9;
-    }
+    .contact-form button:hover { background-color: #0ea5e9; }
 
-    .socials {
+    .social-links {
       text-align: center;
       margin-top: 1rem;
       padding: 1rem 0;
     }
 
-    .socials a {
-      margin: 0 1rem;
+    .social-links a {
       color: var(--accent);
-      text-decoration: none;
-      font-size: 1.8rem;
-      transition: transform 0.3s, color 0.3s;
+      font-size: 30px;
+      margin: 0 15px;
+      display: inline-block;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    .socials a:hover {
+    .social-links a:hover {
       transform: scale(1.2);
       color: #60a5fa;
     }
@@ -244,12 +229,19 @@
     </form>
   </section>
 
-  <section>
+  <!-- Connect with Me Section -->
+  <section id="connect">
     <h2>Connect with Me</h2>
-    <div class="socials">
-      <a href="https://linkedin.com/in/amankumar8025" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/amankumar100" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://x.com/aman_kumar100_" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/amankumar8025" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/amankumar100" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:kr.aman8025@gmail.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
     </div>
   </section>
 
@@ -274,7 +266,6 @@
       setIcon();
     });
 
-    // Set correct icon on initial load
     setIcon();
   </script>
 </body>
