@@ -174,76 +174,7 @@
       font-size: 0.9rem;
       color: var(--text-secondary);
     }
-
-    /* Chatbot */
-    #chatbot-icon {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #0ea5e9;
-      color: white;
-      font-size: 22px;
-      padding: 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease;
-      z-index: 1000;
-    }
-    #chatbot-icon:hover { transform: scale(1.1); background: #0284c7; }
-
-    #chatbot {
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      width: 300px;
-      background: #1e293b;
-      color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      font-family: sans-serif;
-      z-index: 1000;
-    }
-    #chatbot-header {
-      background: #0ea5e9;
-      padding: 10px;
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    #chatbot-messages {
-      padding: 10px;
-      overflow-y: auto;
-      max-height: 250px;
-      font-size: 14px;
-    }
-    .bot-message, .user-message {
-      margin: 5px 0;
-      padding: 8px;
-      border-radius: 8px;
-      max-width: 80%;
-    }
-    .bot-message { background: #334155; }
-    .user-message { background: #0ea5e9; margin-left: auto; }
-    #chatbot-input-area { display: flex; }
-    #chatbot-input {
-      flex: 1;
-      padding: 8px;
-      border: none;
-      outline: none;
-    }
-    #chatbot-send {
-      background: #0ea5e9;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      cursor: pointer;
-    }
-  </style>
+</style>
 </head>
 <body class="dark-mode">
   <header>
@@ -288,67 +219,7 @@
   </section>
 
   <footer>&copy; Aman Kumar</footer>
-
-  <!-- Chatbot -->
-  <div id="chatbot-icon">💬</div>
-  <div id="chatbot">
-    <div id="chatbot-header">Chat with Me <span id="chatbot-close">&times;</span></div>
-    <div id="chatbot-messages"></div>
-    <div id="chatbot-input-area">
-      <input type="text" id="chatbot-input" placeholder="Type your message..." />
-      <button id="chatbot-send">Send</button>
-    </div>
-  </div>
-
-  <script>
-    // Theme Toggle
-    const toggleBtn = document.getElementById("modeToggle");
-    const themeIcon = document.getElementById("themeIcon");
-    const body = document.body;
-    function setIcon() {
-      themeIcon.innerHTML = body.classList.contains("dark-mode")
-        ? `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2..."/></svg>`
-        : `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.64..."/></svg>`;
-    }
-    toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-      setIcon();
-    });
-    setIcon();
-
-    // Chatbot Logic
-    const chatbot = document.getElementById('chatbot');
-    const chatbotIcon = document.getElementById('chatbot-icon');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotSend = document.getElementById('chatbot-send');
-
-    chatbotIcon.addEventListener('click', () => chatbot.style.display = 'flex');
-    chatbotClose.addEventListener('click', () => chatbot.style.display = 'none');
-
-    function addMessage(message, isUser = false) {
-      const msg = document.createElement('div');
-      msg.className = isUser ? 'user-message' : 'bot-message';
-      msg.textContent = message;
-      chatbotMessages.appendChild(msg);
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
-
-    chatbotSend.addEventListener('click', sendMessage);
-    chatbotInput.addEventListener('keypress', e => {
-      if (e.key === 'Enter') sendMessage();
-    });
-
-    function sendMessage() {
-      const text = chatbotInput.value.trim();
-      if (!text) return;
-      addMessage(text, true);
-      chatbotInput.value = '';
-      setTimeout(() => {
-        addMessage("Thanks for your message! I'll get back to you soon.");
-      }, 500);
-    }
-  </script>
+  
 </body>
 </html>
+
